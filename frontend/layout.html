@@ -1,0 +1,130 @@
+<!-- HEADER  -->
+<div class="iq-top-navbar">
+    <div class="container">
+        <div class="iq-navbar-custom">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
+                    <i class="ri-menu-line wrapper-menu"></i>
+                    <a href="index.html" class="header-logo">
+                        <img src="assets/images/logo.png" class="img-fluid rounded-normal light-logo"
+                            alt="logo">
+                        <img src="assets/images/logo-white.png"
+                            class="img-fluid rounded-normal darkmode-logo" alt="logo">
+                    </a>
+                </div>
+                <div class="iq-menu-horizontal">
+                    <nav class="iq-sidebar-menu">
+                        <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
+                            <a href="index.html" class="header-logo">
+                                <img src="assets/images/logo.png" class="img-fluid rounded-normal"
+                                    alt="logo">
+                            </a>
+                            <div class="iq-menu-bt-sidebar">
+                                <i class="las la-bars wrapper-menu"></i>
+                            </div>
+                        </div>
+                        <ul id="iq-sidebar-toggle" class="iq-menu d-flex">
+                            <li class="">
+                                <a href="index.html" class="">
+                                    <span>Danh sách phòng</span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a href="dashboard.html" class="">
+                                    <span>Trang quản trị</span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a href="#pages" class="collapsed" data-toggle="collapse" aria-expanded="false">
+                                    <span>Trang phụ</span>
+                                    <i class="ri-arrow-right-s-line iq-arrow-right"></i>
+                                </a>
+                                <ul id="pages" class="iq-submenu sub-scrll collapse" data-parent="#iq-sidebar-toggle">
+                                    <li class=" ">
+                                        <a href="auth-sign-in.html">
+                                            <span>Đăng nhập</span>
+                                        </a>
+                                    </li>
+                                    <li class=" ">
+                                        <a href="auth-sign-up.html">
+                                            <span>Đăng ký</span>
+                                        </a>
+                                    </li>
+                                    <li class=" ">
+                                        <a href="auth-lock-screen.html">
+                                            <span>Xác thực để mở khóa</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <nav class="navbar navbar-expand-lg navbar-light p-0">
+                    <div class="change-mode">
+                        <div class="custom-control custom-switch custom-switch-icon custom-control-indivne">
+                            <div class="custom-switch-inner">
+                                <p class="mb-0"> </p>
+                                <input type="checkbox" class="custom-control-input" id="dark-mode"
+                                    data-active="true">
+                                <label class="custom-control-label" for="dark-mode" data-mode="toggle">
+                                    <span class="switch-icon-left"><i
+                                            class="a-left ri-moon-clear-line"></i></span>
+                                    <span class="switch-icon-right"><i class="a-right ri-sun-line"></i></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-label="Toggle navigation">
+                        <i class="ri-menu-3-line"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto navbar-list align-items-center">
+                            <li class="caption-content">
+                                <a href="#" class="search-toggle dropdown-toggle d-flex align-items-center"
+                                    id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    <img src="assets/images/user/01.jpg" class="avatar-40 img-fluid rounded"
+                                        alt="user">
+                                    <div class="caption ml-3">
+                                        <h6 class="mb-0 line-height">Quản trị viên</h6>
+                                    </div>
+                                </a>
+                                <div class="iq-sub-dropdown dropdown-menu user-dropdown"
+                                    aria-labelledby="dropdownMenuButton3">
+                                    <div class="card m-0">
+                                        <div class="card-body p-0">
+                                            <a class="right-ic p-3 border-top btn-block position-relative text-center"
+                                                href="auth-sign-in.html" role="button">
+                                                Đăng xuất
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER  -->
+<footer class="iq-footer">
+    <div class="container-fluid container">
+        <div class="row">
+            <div class="col-lg-6">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                    <li class="list-inline-item"><a href="#">Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-6 text-right">
+                Copyright 2023 <a href="#">Calendify</a> All Rights Reserved.
+            </div>
+        </div>
+    </div>
+</footer>

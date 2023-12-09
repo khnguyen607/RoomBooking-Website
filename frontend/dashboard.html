@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="vi">
+
+<!-- Mirrored from templates.iqonic.design/calendify/html/backend/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 01 Dec 2023 04:41:45 GMT -->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Calendify</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://templates.iqonic.design/calendify/html/assets/images/favicon.ico" />
+
+    <link rel="stylesheet" href="assets/css/backend.minf700.css?v=1.0.1">
+    <link rel="stylesheet" href="assets/vendor/%40fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
+    <link rel="stylesheet" href="assets/vendor/remixicon/fonts/remixicon.css">
+</head>
+
+<body class="fixed-top-navbar top-nav  ">
+    <!-- loader Start -->
+    <div id="loading">
+        <div id="loading-center">
+        </div>
+    </div>
+    <!-- loader END -->
+    <!-- Wrapper Start -->
+    <div class="wrapper">
+        <div class="iq-top-navbar"></div>
+        <div class="content-page">
+            <div class="content-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 mb-3">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="navbar-breadcrumb">
+                                    <h1 class="mb-1">Trang quản trị</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-8">
+                            <ul class="d-flex nav nav-pills mb-4 text-center event-tab" id="event-pills-tab"
+                                role="tablist">
+                                <li class="nav-item">
+                                    <a id="view-btn" class="nav-link active show" data-toggle="pill" href="#mgr__room"
+                                        data-extra="#search-with-button" role="tab" aria-selected="true">Quản lý đặt
+                                        phòng</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="view-schedule" class="nav-link" data-toggle="pill" href="#mgr__user"
+                                        data-extra="#view-event" role="tab" aria-selected="false">Quản lý người
+                                        dùng</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="event-content">
+                            <div id="mgr__room" class="tab-pane fade active show">
+                                <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
+                                    <ul class="d-flex nav nav-pills text-center schedule-tab" id="schedule-pills-tab"
+                                        role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active show" data-toggle="pill" href="#room__alls"
+                                                data-extras="#filter-none" role="tab" aria-selected="false">Tất cả</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="pill" href="#room__pending"
+                                                data-extras="#filter-button" role="tab" aria-selected="true">Chưa
+                                                duyệt</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="pill" href="#room__upcoming"
+                                                data-extras="#filter-none" role="tab" aria-selected="false">Đã duyệt</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="pill" href="#room__old"
+                                                data-extras="#filter-button" role="tab" aria-selected="false">Đơn cũ</a>
+                                        </li>
+                                    </ul>
+                                    <div class="d-flex flex-wrap align-items-center">
+                                        <div class="input-group">
+                                            <input type="text" placeholder="Tìm kiếm.." class="form-control">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="ri-search-line"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="schedule-content">
+                                    <div id="room__alls" class="tab-pane fade active show">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="card card-block card-stretch">
+                                                    <div class="card-body">
+                                                        <div
+                                                            class="d-flex flex-wrap align-items-center justify-content-between">
+                                                            <div class="d-flex flex-wrap align-items-center">
+                                                                <div class="date mr-3">
+                                                                    <h4 class="text-info">05 Th12</h4>
+                                                                </div>
+                                                                <div class="border-left pl-3">
+                                                                    <div class="media align-items-top">
+                                                                        <h5 class="mb-3">Nguyên - họp nhóm thảo luận
+                                                                        </h5>
+                                                                        <div class="badge badge-color ml-3">Chưa duyệt
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="media align-items-center">
+                                                                        <p class="mb-0 pr-3"><i
+                                                                            class="ri-barcode-line"></i> 1</p>
+                                                                        <p class="mb-0 pr-3"><i
+                                                                                class="ri-time-fill"></i> 03:00 Pm -
+                                                                            04:00 Pm</p>
+                                                                        <p class="mb-0"><i
+                                                                                class="ri-map-pin-2-fill"></i> Phòng hội thảo</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-flex align-items-center list-action">
+                                                                <a class="badge mr-3" data-toggle="tooltip"
+                                                                    data-placement="top" title=""
+                                                                    data-original-title="Edit" href="#"><i
+                                                                        class="ri-edit-box-line"></i></a>
+                                                                <a class="badge" data-toggle="tooltip"
+                                                                    data-placement="top" title=""
+                                                                    data-original-title="Delete" href="#"><i
+                                                                        class="ri-delete-bin-line"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="card card-block card-stretch">
+                                                    <div class="card-body">
+                                                        <div
+                                                            class="d-flex flex-wrap align-items-center justify-content-between">
+                                                            <div class="d-flex flex-wrap align-items-center">
+                                                                <div class="date mr-3">
+                                                                    <h4 class="text-danger">25 Th11</h4>
+                                                                </div>
+                                                                <div class="border-left pl-3">
+                                                                    <div class="media align-items-top">
+                                                                        <h5 class="mb-3">Trang - mượn phòng nckh</h5>
+                                                                        <div class="badge badge-color ml-3">Đơn cũ
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="media align-items-center">
+                                                                        <p class="mb-0 pr-3"><i
+                                                                            class="ri-barcode-line"></i> 2</p>
+                                                                        <p class="mb-0 pr-3"><i
+                                                                                class="ri-time-fill"></i> 12:00 Am -
+                                                                            01:00 Pm</p>
+                                                                        <p class="mb-0"><i
+                                                                                class="ri-map-pin-2-fill"></i> Phòng nghiên cứu cá nhân 1</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-flex align-items-center list-action">
+                                                                <a class="badge mr-3" data-toggle="tooltip"
+                                                                    data-placement="top" title=""
+                                                                    data-original-title="Edit" href="#"><i
+                                                                        class="ri-edit-box-line"></i></a>
+                                                                <a class="badge" data-toggle="tooltip"
+                                                                    data-placement="top" title=""
+                                                                    data-original-title="Delete" href="#"><i
+                                                                        class="ri-delete-bin-line"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="card card-block card-stretch">
+                                                    <div class="card-body">
+                                                        <div
+                                                            class="d-flex flex-wrap align-items-center justify-content-between">
+                                                            <div class="d-flex flex-wrap align-items-center">
+                                                                <div class="date mr-3">
+                                                                    <h4 class="text-success">04 Th12</h4>
+                                                                </div>
+                                                                <div class="border-left pl-3">
+                                                                    <div class="media align-items-top">
+                                                                        <h5 class="mb-3">Bảo Anh - mượn phòng trao đổi
+                                                                            bài tập
+                                                                        </h5>
+                                                                        <div class="badge badge-color ml-3">Đã duyệt
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="media align-items-center">
+                                                                        <p class="mb-0 pr-3"><i
+                                                                            class="ri-barcode-line"></i> 3</p>
+                                                                        <p class="mb-0 pr-3"><i
+                                                                                class="ri-time-fill"></i> 08:00 Am -
+                                                                            09:00 Am</p>
+                                                                        <p class="mb-0"><i
+                                                                                class="ri-map-pin-2-fill"></i> Phòng học
+                                                                            nhóm 1</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-flex align-items-center list-action">
+                                                                <a class="badge mr-3" data-toggle="tooltip"
+                                                                    data-placement="top" title=""
+                                                                    data-original-title="Edit" href="#"><i
+                                                                        class="ri-edit-box-line"></i></a>
+                                                                <a class="badge" data-toggle="tooltip"
+                                                                    data-placement="top" title=""
+                                                                    data-original-title="Delete" href="#"><i
+                                                                        class="ri-delete-bin-line"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="room__pending" class="tab-pane fade">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-6">
+                                                <div class="card card-block card-stretch card-height">
+                                                    <div class="card-body rounded event-detail event-detail-info">
+                                                        <div
+                                                            class="d-flex align-items-center justify-content-between mb-4">
+                                                            <div>
+                                                                <h1 class="text-info">18</h1>
+                                                                <h5 class="text-info">Th12</h5>
+                                                            </div>
+                                                            <div class="d-flex align-items-center list-action">
+                                                                <a class="badge mr-3" data-toggle="tooltip"
+                                                                    data-placement="top" title=""
+                                                                    data-original-title="Duyệt" href="#"><i
+                                                                        class="ri-check-double-fill"></i></a>
+                                                                <a class="badge" data-toggle="tooltip"
+                                                                    data-placement="top" title=""
+                                                                    data-original-title="Xóa" href="#"><i
+                                                                        class="ri-delete-bin-line"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <h4 class="my-2">Nguyên - mượn phòng học</h4>
+                                                        <p class="mb-4 card-description">Em muốn đặt phòng học ở thư viện để học nhóm, mong thầy/cô hỗ trợ. Em xin cảm ơn!</p>
+                                                        <p class="mb-2 text-info"><i class="ri-barcode-line"></i> 1</p>
+                                                        <p class="mb-2 text-info"><i class="ri-time-fill"></i> 08 Pm - 09 Pm</p>
+                                                        <p class="mb-2 text-info"><i class="ri-map-pin-2-fill"></i> Phòng học nhóm 1</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="room__upcoming" class="tab-pane fade">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-6">
+                                                <div class="card card-block card-stretch card-height">
+                                                    <div class="card-body rounded event-detail event-detail3">
+                                                        <div
+                                                            class="d-flex align-items-center justify-content-between mb-4">
+                                                            <div>
+                                                                <h1 class="text-success">5</h1>
+                                                                <h5 class="text-success">Th12</h5>
+                                                            </div>
+                                                            <div class="d-flex align-items-center list-action">
+                                                                <a class="badge mr-3" data-toggle="tooltip"
+                                                                    data-placement="top" title=""
+                                                                    data-original-title="Sửa" href="#"><i
+                                                                        class="ri-edit-box-line"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <h4 class="my-2">Bảo Anh - mượn phòng tự học</h4>
+                                                        <p class="mb-4 card-description">Em muốn mượn phòng tự học ở thư viện, mong thầy/cô giúp đỡ. Em cảm ơn ạ!</p>
+                                                        <p class="mb-2 text-success"><i class="ri-barcode-line"></i> 2</p>
+                                                        <p class="mb-2 text-success"><i class="ri-time-fill"></i> 10 Pm - 10:30 Pm</p>
+                                                        <p class="mb-2 text-success"><i class="ri-map-pin-2-fill"></i> Phòng nghiên cứu cá nhân 1</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="room__old" class="tab-pane fade">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-6">
+                                                <div class="card card-block card-stretch card-height">
+                                                    <div class="card-body rounded event-detail event-detail2 active">
+                                                        <div
+                                                            class="d-flex align-items-center justify-content-between mb-4">
+                                                            <div>
+                                                                <h1 class="text-danger">25</h1>
+                                                                <h5 class="text-danger">Th11</h5>
+                                                            </div>
+                                                        </div>
+                                                        <h4 class="my-2">Minh Anh</h4>
+                                                        <p class="mb-4 card-description">Chào thầy cô, sắp tới thảo luận em muốn mượn phòng tập thuyết trình ạ</p>
+                                                        <p class="mb-2 text-danger"><i class="ri-barcode-line"></i> 3</p>
+                                                        <p class="mb-2 text-danger"><i class="ri-time-fill"></i> 09:45 Pm - 10 Pm</p>
+                                                        <p class="mb-2 text-danger"><i class="ri-map-pin-2-fill"></i> Phòng học nhóm 2</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="mgr__user" class="tab-pane fade">
+                                <div class="container mb-3">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div
+                                                class="d-flex flex-wrap align-items-center justify-content-between mb-4 create-workform">
+                                                <div>
+                                                    <h4 class="mb-3">Quản lý các thành viên</h4>
+                                                    <!-- <p class="mb-md-0">Select your preferred style of workflow from the
+                                                        following<br> options or create your unique workflow. </p> -->
+                                                </div>
+                                                <div class="media flex-wrap api-link">
+                                                    <a href="#" data-toggle="modal" data-target="#invite-user"
+                                                        class="btn btn-primary mr-4 position-relative">Thêm thủ thư</a>
+                                                    <!-- <a href="#" data-toggle="modal" data-target="#invite-user"
+                                                        class="btn btn-outline-primary add-user">Add User</a> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <ul class="d-flex nav nav-pills text-center schedule-tab"
+                                                id="schedule-pills-tab" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active show" data-toggle="pill" href="#alls"
+                                                        data-extras="#filter-none" role="tab" aria-selected="false">Tất
+                                                        cả</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" data-toggle="pill" href="#librarian"
+                                                        data-extras="#filter-none" role="tab" aria-selected="false">Thủ
+                                                        thư</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" data-toggle="pill" href="#student"
+                                                        data-extras="#filter-none" role="tab" aria-selected="false">Sinh
+                                                        viên</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="input-group">
+                                                <input type="text" placeholder="Tìm kiếm.." class="form-control">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="ri-search-line"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="schedule-content">
+                                    <div id="alls" class="tab-pane fade active show">
+                                        <div class="card card-block card-stretch calender-account user-list">
+                                            <div class="card-body">
+                                                <div
+                                                    class="d-flex flex-wrap align-items-center justify-content-between">
+                                                    <div class="media flex-wrap align-items-center">
+                                                        <div class="mr-3">
+                                                            <img class="avatar-50 rounded"
+                                                                src="assets/images/user/studying.png" alt="01">
+                                                        </div>
+                                                        <div>
+                                                            <div class="media align-items-top user-detail mb-1">
+                                                                <h6>Huyền Trang</h6>
+                                                                <div class="badge badge-color ml-3 mt-0">Sinh viên</div>
+                                                            </div>
+                                                            <p class="mb-0">huyentrang1234@gmail.com</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="date">
+                                                        <div class="d-flex align-items-center list-action">
+                                                            <a class="badge mr-3" href="#"><i
+                                                                    class="ri-edit-box-line"></i></a>
+                                                            <a class="badge" href="#"><i
+                                                                    class="ri-delete-bin-line"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card card-block card-stretch calender-account user-list">
+                                            <div class="card-body">
+                                                <div
+                                                    class="d-flex flex-wrap align-items-center justify-content-between">
+                                                    <div class="media flex-wrap align-items-center">
+                                                        <div class="mr-3">
+                                                            <img class="avatar-50 rounded"
+                                                                src="assets/images/user/librarian.png" alt="01">
+                                                        </div>
+                                                        <div>
+                                                            <div class="media align-items-top user-detail mb-1">
+                                                                <h6>Thủ thư 1</h6>
+                                                                <div class="badge badge-color ml-3 mt-0">Thủ thư</div>
+                                                            </div>
+                                                            <p class="mb-0">librarian1.tmu@gmail.com</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="date">
+                                                        <div class="d-flex align-items-center list-action">
+                                                            <a class="badge mr-3" href="#"><i
+                                                                    class="ri-edit-box-line"></i></a>
+                                                            <a class="badge" href="#"><i
+                                                                    class="ri-delete-bin-line"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="librarian" class="tab-pane fade">
+                                        <div class="card card-block card-stretch calender-account user-list">
+                                            <div class="card-body">
+                                                <div
+                                                    class="d-flex flex-wrap align-items-center justify-content-between">
+                                                    <div class="media flex-wrap align-items-center">
+                                                        <div class="mr-3">
+                                                            <img class="avatar-50 rounded"
+                                                                src="assets/images/user/librarian.png" alt="01">
+                                                        </div>
+                                                        <div>
+                                                            <div class="media align-items-top user-detail mb-1">
+                                                                <h6>Thủ thư 1</h6>
+                                                                <div class="badge badge-color ml-3 mt-0">Thủ thư</div>
+                                                            </div>
+                                                            <p class="mb-0">librarian1.tmu@gmail.com</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="date">
+                                                        <div class="d-flex align-items-center list-action">
+                                                            <a class="badge mr-3" href="#"><i
+                                                                    class="ri-edit-box-line"></i></a>
+                                                            <a class="badge" href="#"><i
+                                                                    class="ri-delete-bin-line"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="student" class="tab-pane fade">
+                                        <div class="card card-block card-stretch calender-account user-list">
+                                            <div class="card-body">
+                                                <div
+                                                    class="d-flex flex-wrap align-items-center justify-content-between">
+                                                    <div class="media flex-wrap align-items-center">
+                                                        <div class="mr-3">
+                                                            <img class="avatar-50 rounded"
+                                                                src="assets/images/user/studying.png" alt="01">
+                                                        </div>
+                                                        <div>
+                                                            <div class="media align-items-top user-detail mb-1">
+                                                                <h6>Huyền Trang</h6>
+                                                                <div class="badge badge-color ml-3 mt-0">Sinh viên</div>
+                                                            </div>
+                                                            <p class="mb-0">huyentrang1234@gmail.com</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="date">
+                                                        <div class="d-flex align-items-center list-action">
+                                                            <a class="badge mr-3" href="#"><i
+                                                                    class="ri-edit-box-line"></i></a>
+                                                            <a class="badge" href="#"><i
+                                                                    class="ri-delete-bin-line"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade create-workform" id="invite-user" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="popup text-left">
+                                <h4 class="mb-3">Thêm thủ thư</h4>
+                                <div class="mb-3">
+                                    <h5 class="mb-3">Tên thủ thư</h5>
+                                    <input type="text" class="form-control" placeholder="Nhập tên thủ thư">
+                                </div>
+                                <div class="mb-3">
+                                    <h5 class="mb-3">Tên đăng nhập</h5>
+                                    <input type="text" class="form-control" placeholder="Nhập tên đăng nhập">
+                                </div>
+                                <div class="mb-3">
+                                    <h5 class="mb-3">Địa chỉ email</h5>
+                                    <input type="text" class="form-control" placeholder="Nhập địa chỉ email">
+                                </div>
+                                <div class="mb-3">
+                                    <h5 class="mb-3">Mật khẩu</h5>
+                                    <input type="text" class="form-control" placeholder="Nhập mật khẩu">
+                                </div>
+                                <div class="mt-3">
+                                    <div class="d-flex flex-wrap align-items-ceter justify-content-center">
+                                        <div class="btn btn-primary mr-4" data-dismiss="modal">Quay lại</div>
+                                        <div class="btn btn-outline-primary" data-dismiss="modal">Thêm</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrapper End-->
+    <footer class="iq-footer"></footer>
+    
+    <!-- Backend Bundle JavaScript -->
+    <script src="assets/js/backend-bundle.min.js"></script>
+
+    <!-- Chart Custom JavaScript -->
+    <script src="assets/js/customizer.js"></script>
+
+
+    <!-- app JavaScript -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- script custom -->
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
