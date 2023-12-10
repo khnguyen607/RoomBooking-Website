@@ -6,7 +6,7 @@ function defaultFunc() {
             resources: resources,
             events: events,
             slotMinTime: "07:00:00",
-            slotMaxTime: "16:00:00",
+            slotMaxTime: "19:00:00",
             expandRows: true
         });
         calendar.render();
