@@ -101,12 +101,12 @@
                         <div class="modal-body">
                             <div class="popup text-left">
                                 <h4 class="mb-3">Đơn đặt</h4>
-                                <form action="#" id="submit_schedule">
+                                <form action="../backend/index.php?controller=booking&action=addBooking" id="submit_schedule" method="post">
                                     <div class="content create-workform row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="form-label" for="schedule-type">Loại phòng</label>
-                                                <select class="form-control rooms__select"></select>
+                                                <select class="form-control rooms__select check__time" name="room_id" ></select>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
@@ -122,22 +122,25 @@
                                                     phòng</label>
                                                 <input class="form-control"
                                                     placeholder="Vd: Chào cô, em muốn mượn phòng để học nhóm ạ"
-                                                    type="text" name="title" id="schedule_subtitle" required />
+                                                    type="text" name="content" id="schedule_subtitle" required />
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="form-label" for="schedule_start">Thời gian bắt
                                                     đầu</label>
-                                                <input type="datetime-local" class="form-control" id="schedule_start">
+                                                <input type="datetime-local" class="form-control check__time" id="schedule_start" name="timein">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="form-label" for="schedule_end">Thời gian kết
                                                     thúc</label>
-                                                <input type="datetime-local" class="form-control" id="schedule_end">
+                                                <input type="datetime-local" class="form-control check__time" id="schedule_end" name="timeout">
                                             </div>
+                                        </div>
+                                        <div class="col-md-12 text-center">
+                                            <span class="text-danger time__repeat d-none">Bị trùng lặp ngày</span>
                                         </div>
                                         <div class="col-md-12 mt-4">
                                             <div class="d-flex flex-wrap align-items-ceter justify-content-center">
@@ -214,7 +217,7 @@
 
     <!-- View script -->
     <script src="assets/js/Views/index.js"></script>
-    
+
     <!-- Backend Bundle JavaScript -->
     <script src="assets/js/backend-bundle.min.js"></script>
 

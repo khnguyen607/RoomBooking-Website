@@ -39,24 +39,18 @@ class BookingController extends BaseController
         header("Location: ../frontend/dashboard.html?tab=mgr__booking");
     }
 
-    // public function addStudent()
-    // {
-    //     $data = [
-    //         'email'  => $_POST['email'],
-    //         'name'  => $_POST['name'],
-    //         'user'  => $_POST['user'],
-    //         'pass'  => $_POST['pass']
-    //     ];
-
-    //     if ($this->bookingModel->checkuser_name($data['user'])) {
-    //         $this->bookingModel->store($data);
-    //         header("Location: ../frontend/auth-sign-in.html?user=" . $data['user']);
-    //     } else {
-    //         header("Location: ../frontend/auth-sign-up.html?name=" . $data['name']);
-    //     }
-    // }
-
-
-
-
+    public function addBooking()
+    {
+        $data = [
+            'title'    => $_POST['title'],
+            'content'  => $_POST['content'],
+            'timein'   => $_POST['timein'],
+            'timeout'  => $_POST['timeout'],
+            'room_id'  => $_POST['room_id'],
+            'user_id'  => $_COOKIE['user_id']
+        ];
+        
+        $this->bookingModel->store($data);
+        header("Location: ../frontend/index.html");
+    }
 }
