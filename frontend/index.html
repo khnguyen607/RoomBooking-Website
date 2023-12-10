@@ -7,7 +7,6 @@
     <title>Calendify</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="https://templates.iqonic.design/calendify/html/assets/images/favicon.ico" />
 
     <link rel="stylesheet" href="assets/css/backend.minf700.css?v=1.0.1">
     <link rel="stylesheet" href="assets/vendor/%40fortawesome/fontawesome-free/css/all.min.css">
@@ -70,6 +69,28 @@
                             </div>
                         </div>
 
+                        <div class="container">
+                            <h2>Thông tin chi tiết các phòng</h2>
+                            <div class="row my-3 room__list">
+
+                                <div class="card col-4 room__info">
+                                    <img src="https://vnn-imgs-f.vgcloud.vn/2022/01/07/15/thuong-mai-1.jpg"
+                                        class="card-img-top img-fluids" style="height: 15rem; object-fit: cover;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Group study Room 1</h5>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">Vị trí: <strong>3, Thư viện TMU</strong></li>
+                                            <li class="list-group-item">Sức chứa: <strong>6 người</strong></li>
+                                            <li class="list-group-item">Tiện ích: <strong>Điều hòa, bàn ghế,
+                                                    Wifi</strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -85,16 +106,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="form-label" for="schedule-type">Loại phòng</label>
-                                                <select class="form-control selectpicker" data-style="py-0">
-                                                    <option value="research1">Phòng nghiên cứu cá nhân 1</option>
-                                                    <option value="research2">Phòng nghiên cứu cá nhân 2</option>
-                                                    <option value="group1">Phòng học nhóm 1</option>
-                                                    <option value="group2">Phòng học nhóm 2</option>
-                                                    <option value="group3">Phòng học nhóm 3</option>
-                                                    <option value="seminar1">Phòng thuyết trình 1</option>
-                                                    <option value="seminar2">Phòng thuyết trình 2</option>
-                                                    <option value="presentation">Phòng hội thảo</option>
-                                                </select>
+                                                <select class="form-control rooms__select"></select>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
@@ -200,6 +212,9 @@
     <!-- Wrapper End-->
     <footer class="iq-footer"></footer>
 
+    <!-- View script -->
+    <script src="assets/js/Views/index.js"></script>
+    
     <!-- Backend Bundle JavaScript -->
     <script src="assets/js/backend-bundle.min.js"></script>
 
