@@ -161,6 +161,7 @@ function defaultFunc() {
         var divtoBooking__alls = document.querySelector('#booking__alls .booking__info').cloneNode(true)
         var divtoBooking__pending = document.querySelector('#booking__pending .booking__info').cloneNode(true)
         var divtoBooking__approved = document.querySelector('#booking__approved .booking__info').cloneNode(true)
+        var divtoBooking__used = document.querySelector('#booking__used .booking__info').cloneNode(true)
         var divtoBooking__old = document.querySelector('#booking__old .booking__info').cloneNode(true)
         function show__booking() {
             // TAB - BOOKING_ALLS
@@ -170,6 +171,7 @@ function defaultFunc() {
                     document.querySelector('#booking__alls .booking__list').innerHTML = ''
                     document.querySelector('#booking__pending .booking__list').innerHTML = ''
                     document.querySelector('#booking__approved .booking__list').innerHTML = ''
+                    document.querySelector('#booking__used .booking__list').innerHTML = ''
                     document.querySelector('#booking__old .booking__list').innerHTML = ''
                     data.forEach(item => {
                         // tab - alls 
@@ -183,6 +185,7 @@ function defaultFunc() {
                                 divBooking__alls.querySelector('div.badge-color').textContent = 'Chưa duyệt'
                                 divBooking__alls.querySelector('div.badge-color').classList.add('badge-info')
                                 divBooking__alls.querySelector('h4').classList.add('text-info')
+                                divBooking__alls.querySelector('.used__btn').classList.add('d-none')
                                 break;
                             case '1':
                                 divBooking__alls.querySelector('div.badge-color').textContent = 'Đã duyệt'
@@ -191,12 +194,19 @@ function defaultFunc() {
                                 divBooking__alls.querySelector('.approve__btn').classList.add('d-none')
                                 break;
                             case '2':
+                                divBooking__alls.querySelector('div.badge-color').textContent = 'Đang bận'
+                                divBooking__alls.querySelector('div.badge-color').classList.add('badge-warning')
+                                divBooking__alls.querySelector('h4').classList.add('text-warning')
+                                divBooking__alls.querySelector('.used__btn').classList.add('d-none')
+                                divBooking__alls.querySelector('.approve__btn').classList.add('d-none')
+                                break;
+                            case '3':
                                 divBooking__alls.querySelector('div.badge-color').textContent = 'Hết hạn'
                                 divBooking__alls.querySelector('div.badge-color').classList.add('badge-danger')
                                 divBooking__alls.querySelector('h4').classList.add('text-danger')
                                 divBooking__alls.querySelector('.delete__btn').classList.add('d-none')
                                 divBooking__alls.querySelector('.approve__btn').classList.add('d-none')
-                                divBooking__alls.querySelector('.edit__btn').classList.add('d-none')
+                                divBooking__alls.querySelector('.used__btn').classList.add('d-none')
                                 break;
                         }
                         var m__info = divBooking__alls.querySelectorAll('.m__info p span')
@@ -205,8 +215,9 @@ function defaultFunc() {
                         var timein = item.timein.split(' ')[1].substring(0, 5)
                         var timeout = item.timeout.split(' ')[1].substring(0, 5)
                         m__info[1].textContent = timein + ' - ' + timeout
-                        divBooking__alls.querySelector('.approve__btn').href = '../backend/index.php?controller=booking&action=changeStatus&status=1&id='+item.id 
-                        divBooking__alls.querySelector('.delete__btn').href = '../backend/index.php?controller=booking&action=changeStatus&status=2&id='+item.id     
+                        divBooking__alls.querySelector('.approve__btn').href = '../backend/index.php?controller=booking&action=changeStatus&status=1&id=' + item.id
+                        divBooking__alls.querySelector('.used__btn').href = '../backend/index.php?controller=booking&action=changeStatus&status=2&id=' + item.id
+                        divBooking__alls.querySelector('.delete__btn').href = '../backend/index.php?controller=booking&action=changeStatus&status=3&id=' + item.id
 
                         document.querySelector('#booking__alls .booking__list').appendChild(divBooking__alls)
 
@@ -221,11 +232,11 @@ function defaultFunc() {
                         p_pending[2].textContent = timein + ' - ' + timeout
                         p_pending[3].textContent = item.location
                         if (item.status == '0') {
-                            divBooking__pending.querySelector('.approve__btn').href = '../backend/index.php?controller=booking&action=changeStatus&status=1&id='+item.id 
-                            divBooking__pending.querySelector('.delete__btn').href = '../backend/index.php?controller=booking&action=changeStatus&status=2&id='+item.id     
+                            divBooking__pending.querySelector('.approve__btn').href = '../backend/index.php?controller=booking&action=changeStatus&status=1&id=' + item.id
+                            divBooking__pending.querySelector('.delete__btn').href = '../backend/index.php?controller=booking&action=changeStatus&status=3&id=' + item.id
                             document.querySelector('#booking__pending .booking__list').appendChild(divBooking__pending)
                         }
-                        // tab - pending 
+                        // tab - approved
                         var divBooking__approved = divtoBooking__approved.cloneNode(true)
                         divBooking__approved.querySelector('h1').textContent = day.split(' ')[0]
                         divBooking__approved.querySelector('h5').textContent = day.split(' ')[1]
@@ -236,8 +247,23 @@ function defaultFunc() {
                         p_approved[2].textContent = timein + ' - ' + timeout
                         p_approved[3].textContent = item.location
                         if (item.status == '1') {
-                            divBooking__approved.querySelector('.delete__btn').href = '../backend/index.php?controller=booking&action=changeStatus&status=2&id='+item.id
+                            divBooking__approved.querySelector('.delete__btn').href = '../backend/index.php?controller=booking&action=changeStatus&status=3&id=' + item.id
+                            divBooking__approved.querySelector('.used__btn').href = '../backend/index.php?controller=booking&action=changeStatus&status=2&id=' + item.id
                             document.querySelector('#booking__approved .booking__list').appendChild(divBooking__approved)
+                        }
+                        // tab - used
+                        var divBooking__used = divtoBooking__used.cloneNode(true)
+                        divBooking__used.querySelector('h1').textContent = day.split(' ')[0]
+                        divBooking__used.querySelector('h5').textContent = day.split(' ')[1]
+                        divBooking__used.querySelector('h4').textContent = item.title
+                        var p_used = divBooking__used.querySelectorAll('p span')
+                        p_used[0].textContent = item.title
+                        p_used[1].textContent = item.id
+                        p_used[2].textContent = timein + ' - ' + timeout
+                        p_used[3].textContent = item.location
+                        if (item.status == '2') {
+                            divBooking__used.querySelector('.delete__btn').href = '../backend/index.php?controller=booking&action=changeStatus&status=3&id=' + item.id
+                            document.querySelector('#booking__used .booking__list').appendChild(divBooking__used)
                         }
                         // tab - old 
                         var divBooking__old = divtoBooking__old.cloneNode(true)
@@ -249,7 +275,7 @@ function defaultFunc() {
                         p_approved[1].textContent = item.id
                         p_approved[2].textContent = timein + ' - ' + timeout
                         p_approved[3].textContent = item.location
-                        if (item.status == '2') document.querySelector('#booking__old .booking__list').appendChild(divBooking__old)
+                        if (item.status == '3') document.querySelector('#booking__old .booking__list').appendChild(divBooking__old)
 
                     });
 
@@ -276,7 +302,7 @@ function defaultFunc() {
         document.querySelector('.booking__search').addEventListener('input', () => {
             document.querySelectorAll('.booking__info').forEach(item => {
                 let check = item.querySelector('.booking__id').textContent == document.querySelector('.booking__search').value
-                || document.querySelector('.booking__search').value == ''
+                    || document.querySelector('.booking__search').value == ''
                 if (check) {
                     item.classList.remove('d-none')
                 } else {

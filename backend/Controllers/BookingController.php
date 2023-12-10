@@ -36,7 +36,10 @@ class BookingController extends BaseController
             'status' => $_GET['status']
         ];
         $this->bookingModel->edit($id, $data);
-        header("Location: ../frontend/dashboard.html?tab=mgr__booking");
+        if (isset($_GET['user']))
+            header("Location: ../frontend/user.html");
+        else
+            header("Location: ../frontend/dashboard.html?tab=mgr__booking");
     }
 
     public function addBooking()
@@ -49,7 +52,7 @@ class BookingController extends BaseController
             'room_id'  => $_POST['room_id'],
             'user_id'  => $_COOKIE['user_id']
         ];
-        
+
         $this->bookingModel->store($data);
         header("Location: ../frontend/index.html");
     }

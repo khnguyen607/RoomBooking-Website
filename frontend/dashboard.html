@@ -81,6 +81,11 @@
                                                 data-extras="#filter-none" role="tab" aria-selected="false">Đã duyệt</a>
                                         </li>
                                         <li class="nav-item">
+                                            <a class="nav-link" data-toggle="pill" href="#booking__used"
+                                                data-extras="#filter-button" role="tab" aria-selected="false">Đang
+                                                bận</a>
+                                        </li>
+                                        <li class="nav-item">
                                             <a class="nav-link" data-toggle="pill" href="#booking__old"
                                                 data-extras="#filter-button" role="tab" aria-selected="false">Hết
                                                 hạn</a>
@@ -88,7 +93,8 @@
                                     </ul>
                                     <div class="d-flex flex-wrap align-items-center">
                                         <div class="input-group">
-                                            <input type="text" placeholder="Tìm kiếm mã đặt phòng" class="form-control booking__search">
+                                            <input type="text" placeholder="Tìm kiếm mã đặt phòng"
+                                                class="form-control booking__search">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
                                                     <i class="ri-search-line"></i>
@@ -119,7 +125,8 @@
                                                                     </div>
                                                                     <div class="media align-items-center m__info">
                                                                         <p class="mb-0 pr-3"><i
-                                                                                class="ri-barcode-line"></i><span class="booking__id">1</span>
+                                                                                class="ri-barcode-line"></i><span
+                                                                                class="booking__id">1</span>
                                                                         </p>
                                                                         <p class="mb-0 pr-3"><i
                                                                                 class="ri-time-fill"></i> <span>03:00 Pm
@@ -134,8 +141,8 @@
                                                                 </div>
                                                             </div>
                                                             <div class="d-flex align-items-center list-action">
-                                                                <a class="badge mr-3 edit__btn" href="#"><i
-                                                                        class="ri-edit-box-line"></i></a>
+                                                                <a class="badge mr-3 used__btn" href="#"><i
+                                                                        class="ri-login-box-line"></i></a>
                                                                 <a class="badge mr-3 approve__btn" href="#"><i
                                                                         class="ri-check-double-fill"></i></a>
                                                                 <a class="badg delete__btn" href="#"><i
@@ -170,8 +177,8 @@
                                                         </div>
                                                         <h4 class="my-2">Nguyên - mượn phòng học</h4>
                                                         <p class="mb-4 card-description"><span></span></p>
-                                                        <p class="mb-2 text-info"><i
-                                                                class="ri-barcode-line"></i><span class="booking__id"></span></p>
+                                                        <p class="mb-2 text-info"><i class="ri-barcode-line"></i><span
+                                                                class="booking__id"></span></p>
                                                         <p class="mb-2 text-info"><i
                                                                 class="ri-time-fill"></i><span></span></p>
                                                         <p class="mb-2 text-info"><i
@@ -196,8 +203,8 @@
                                                                 <h5 class="text-success">Th12</h5>
                                                             </div>
                                                             <div class="d-flex align-items-center list-action">
-                                                                <a class="badge mr-3" href="#"><i
-                                                                        class="ri-edit-box-line"></i></a>
+                                                                <a class="badge mr-3 used__btn" href="#"><i
+                                                                        class="ri-login-box-line"></i></a>
                                                                 <a class="badge delete__btn" href="#"><i
                                                                         class="ri-delete-bin-line"></i></a>
                                                             </div>
@@ -205,10 +212,44 @@
                                                         <h4 class="my-2">Bảo Anh - mượn phòng tự học</h4>
                                                         <p class="mb-4 card-description"><span></span></p>
                                                         <p class="mb-2 text-success"><i
-                                                                class="ri-barcode-line"></i><span class="booking__id"></span></p>
+                                                                class="ri-barcode-line"></i><span
+                                                                class="booking__id"></span></p>
                                                         <p class="mb-2 text-success"><i
                                                                 class="ri-time-fill"></i><span></span></p>
                                                         <p class="mb-2 text-success"><i
+                                                                class="ri-map-pin-2-fill"></i><span></span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div id="booking__used" class="tab-pane fade">
+                                        <div class="row booking__list">
+
+                                            <div class="col-lg-4 col-md-6 booking__info">
+                                                <div class="card card-block card-stretch card-height">
+                                                    <div class="card-body rounded event-detail event-detail3">
+                                                        <div
+                                                            class="d-flex align-items-center justify-content-between mb-4">
+                                                            <div>
+                                                                <h1 class="text-warning">5</h1>
+                                                                <h5 class="text-warning">Th10</h5>
+                                                            </div>
+                                                            <div class="d-flex align-items-center list-action">
+                                                                <a class="badge delete__btn" href="#"><i
+                                                                        class="ri-delete-bin-line"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <h4 class="my-2">Bảo Anh - mượn phòng tự học</h4>
+                                                        <p class="mb-4 card-description"><span></span></p>
+                                                        <p class="mb-2 text-warning"><i
+                                                                class="ri-barcode-line"></i><span
+                                                                class="booking__id"></span></p>
+                                                        <p class="mb-2 text-warning"><i
+                                                                class="ri-time-fill"></i><span></span></p>
+                                                        <p class="mb-2 text-warning"><i
                                                                 class="ri-map-pin-2-fill"></i><span></span></p>
                                                     </div>
                                                 </div>
@@ -232,8 +273,8 @@
                                                         </div>
                                                         <h4 class="my-2">Minh Anh</h4>
                                                         <p class="mb-4 card-description"><span></span></p>
-                                                        <p class="mb-2 text-danger"><i
-                                                                class="ri-barcode-line"></i><span class="booking__id"></span></p>
+                                                        <p class="mb-2 text-danger"><i class="ri-barcode-line"></i><span
+                                                                class="booking__id"></span></p>
                                                         <p class="mb-2 text-danger"><i
                                                                 class="ri-time-fill"></i><span></span></p>
                                                         <p class="mb-2 text-danger"><i
@@ -495,7 +536,8 @@
                                             placeholder="Nhập vị trí">
                                     </div>
                                     <div class="mb-3">
-                                        <h5 class="mb-3">Link hình ảnh - <a href="https://upanh.tv/" target="_blank">Click lấy link
+                                        <h5 class="mb-3">Link hình ảnh - <a href="https://upanh.tv/"
+                                                target="_blank">Click lấy link
                                                 ảnh</a></h5>
                                         <input type="text" name="img" class="form-control" required
                                             placeholder="Nhập link hình ảnh">
