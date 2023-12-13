@@ -1,5 +1,12 @@
 function defaultFunc() {
     function createCalendar(resources, events) {
+        function showAlert(event) {
+            // Tạo một chuỗi chứa thông tin chi tiết sự kiện
+            var eventDetails = `Tiêu đề: ${event.title}\nThời gian: ${event.start.toLocaleString().split(' ')[0]} - ${event.end.toLocaleString().split(' ')[0]}`;
+            // Hiển thị thông tin trong cửa sổ alert
+            alert(eventDetails);
+        }
+
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'resourceTimeline',
@@ -7,7 +14,10 @@ function defaultFunc() {
             events: events,
             slotMinTime: "07:00:00",
             slotMaxTime: "19:00:00",
-            expandRows: true
+            expandRows: true,
+            eventClick: function (info) {
+                showAlert(info.event);
+            }
         });
         calendar.render();
 
@@ -38,7 +48,7 @@ function defaultFunc() {
                     resourceId: 'room' + document.querySelector('.rooms__select').value,
                     title: document.querySelector('#schedule_title').value,
                     start: document.querySelector('#schedule_start').value,
-                    end: document.querySelector('#schedule_end').value
+                    end: document.querySelector('#schedule_end').value,
                 })
             })
         })
@@ -54,6 +64,7 @@ function defaultFunc() {
             let resources = []
             let events = []
             data.forEach(item => {
+                console.log(item)
                 var divRoom = divtoRoom.cloneNode(true)
                 divRoom.querySelector('h5').textContent = item.name
                 divRoom.querySelector('img').src = item.img
@@ -70,7 +81,8 @@ function defaultFunc() {
                 // thêm các phòng vào bảng calendar 
                 resources.push({
                     id: 'room' + item.id,
-                    title: item.name
+                    title: item.name,
+                    user: item.id
                 })
             });
 
@@ -78,7 +90,7 @@ function defaultFunc() {
                 .then(response => response.json())
                 .then(data_b => {
                     data_b = data_b.filter(item => {
-                        return item.status == '1'
+                        return item.status == '1' || item.status == '2'
                     })
                     data_b.forEach(item_b => {
                         // thêm các sự kiện vào bảng calendar 

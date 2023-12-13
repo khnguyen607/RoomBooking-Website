@@ -59,7 +59,7 @@ class BaseModel extends Database
         $values = implode(',', $values);
         $sql = "UPDATE `$table` SET $values WHERE `id`= $id";
         $this ->_query($sql);
-        return "Thành công: $sql";
+        return True;
     }
 
     // xóa dữ liệu 

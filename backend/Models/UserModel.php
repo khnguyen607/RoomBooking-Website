@@ -42,6 +42,28 @@ class UserModel extends BaseModel
         return $this->create(self::TABLE, $data);
     }
 
+    // cập nhật thông tin User 
+    public function updateU($data)
+    {
+        $id = $_COOKIE['user_id'];
+        $user = [
+            'user' => $data['user'],
+            'pass' => $data['currentpass']
+        ];
+        if (!$this->isValidUser($user)) return False;
+        $data['pass'] = $this->setPassword($data['newpass']);
+
+        $user = [
+            'name'  =>  $data['name'],
+            'email' =>  $data['email'],
+            'user'  =>  $data['user'],
+            'pass'  =>  $data['pass']
+        ];
+
+        $this->update(self::TABLE, $id, $user);
+        return True;
+    }
+
     // Phương thức để kiểm tra vai trò của người dùng
     public function checkUserRole()
     {
@@ -67,9 +89,9 @@ class UserModel extends BaseModel
         $table = self::TABLE;
         $sql = "SELECT * FROM `$table` WHERE user = '$user' LIMIT 1";
         $user = mysqli_fetch_assoc($this->_query($sql));
-        if(!isset($user)) return False;
-        if(!$this->checkPassword($pass, $user['pass'])) return False;
-        
+        if (!isset($user)) return False;
+        if (!$this->checkPassword($pass, $user['pass'])) return False;
+
         setcookie("user_id", $user['id'], time() + 3600, "/");
         return True;
     }

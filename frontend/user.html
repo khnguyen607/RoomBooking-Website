@@ -116,36 +116,38 @@
 
                                         <div class="card card-block card-stretch calender-account user-list user__info">
                                             <div class="card-body">
+                                                <span class="text-success update__true d-none">Cập nhật mật khẩu thành công !</span>
+                                                <span class="text-danger update__false d-none">Sai mật khẩu !</span>
                                                 <h4 class="mb-3">Thông tin tài khoản</h4>
-                                                <form>
+                                                <form action="../backend/index.php?controller=user&action=updateUser" method="post">
                                                     <div class="mb-3">
                                                         <label for="user_name" class="form-label">Họ và Tên</label>
-                                                        <input type="text" class="form-control" id="user_name">
+                                                        <input type="text" class="form-control" id="user_name" name="name">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="user_email" class="form-label">Email</label>
-                                                        <input type="email" class="form-control" id="user_email">
+                                                        <input type="email" class="form-control" id="user_email" name="email">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="user_user" class="form-label">Tên đăng nhập</label>
-                                                        <input type="text" class="form-control" id="user_user">
+                                                        <input type="text" class="form-control" id="user_user" name="user" readonly>
                                                     </div>
                                                     <div class="row mb-3">
                                                         <div class="col-6">
                                                             <label for="currentpass" class="form-label">Mật
                                                                 khẩu hiện tại</label>
                                                             <input type="password" class="form-control"
-                                                                id="currentpass">
+                                                                id="currentpass" name="currentpass">
                                                         </div>
                                                         <div class="col-6">
                                                             <label for="newpass" class="form-label">Mật
                                                                 khẩu mới</label>
                                                             <input type="password" class="form-control"
-                                                                id="newpass">
+                                                                id="newpass" name="newpass">
                                                         </div>
                                                     </div>
-                                                    <button type="submit" class="btn btn-primary" disabled>Lưu</button>
-                                                    <div class="form-text">**Cần nhập đúng mật khẩu để có thể lưu.</div>
+                                                    <button type="submit" class="btn btn-primary">Lưu</button>
+                                                    <!-- <div class="form-text">**Cần nhập đúng mật khẩu để có thể lưu.</div> -->
                                                 </form>
                                             </div>
                                         </div>

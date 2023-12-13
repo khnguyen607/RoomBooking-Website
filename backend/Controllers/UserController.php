@@ -76,6 +76,21 @@ class UserController extends BaseController
         header("Location: ../frontend/dashboard.html?tab=mgr__user");
     }
 
+    public function updateUser()
+    {
+        $data = [
+            'email'       => $_POST['email'],
+            'name'        => $_POST['name'],
+            'user'        => $_POST['user'],
+            'currentpass' => $_POST['currentpass'],
+            'newpass'     => $_POST['newpass']
+        ];
+
+        if($this->userModel->updateU($data)) header("Location: ../frontend/user.html?update=true");
+        else header("Location: ../frontend/user.html?update=false");
+        
+    }
+
     public function delUser()
     {
         $id = $_GET['id'];

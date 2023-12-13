@@ -1,4 +1,17 @@
 function defaultFunc() {
+    if (new URLSearchParams(window.location.search).get('update') == 'false') {
+        document.querySelector('.update__false').classList.remove('d-none')
+        document.querySelector('#mgr__user').classList.add('active', 'show')
+        document.querySelector('#mgr__booking').classList.remove('active', 'show')
+        document.querySelector('#view-mgr__user').classList.add('active', 'show')
+        document.querySelector('#view-mgr__booking').classList.remove('active', 'show')
+    } else if (new URLSearchParams(window.location.search).get('update') == 'true') {
+        document.querySelector('.update__true').classList.remove('d-none')
+        document.querySelector('#mgr__user').classList.add('active', 'show')
+        document.querySelector('#mgr__booking').classList.remove('active', 'show')
+        document.querySelector('#view-mgr__user').classList.add('active', 'show')
+        document.querySelector('#view-mgr__booking').classList.remove('active', 'show')
+    }
     // quản lý người dùng
     function mgr__users() {
         fetch('../backend/index.php?controller=user&action=check')
